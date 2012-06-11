@@ -1,1 +1,8 @@
 <h1>Welcome to Snooker Club.</h1>
+<h2>テーブル使用状況</h2>
+<dl>
+  <% @tables.each do |t| %>
+    <dt>Table <%= t.id %></dt>
+    <dd>準備中</dd>
+  <% end %>
+</dl>
