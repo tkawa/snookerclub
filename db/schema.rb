@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120611000000) do
+ActiveRecord::Schema.define(:version => 20120611113347) do
 
   create_table "accounts", :force => true do |t|
     t.string   "provider",    :null => false
@@ -26,5 +26,15 @@ ActiveRecord::Schema.define(:version => 20120611000000) do
   end
 
   add_index "accounts", ["provider", "uid"], :name => "index_accounts_on_provider_and_uid", :unique => true
+
+  create_table "plays", :force => true do |t|
+    t.integer  "table_id"
+    t.datetime "starts_at",  :null => false
+    t.datetime "ends_at"
+    t.text     "note"
+    t.integer  "account_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

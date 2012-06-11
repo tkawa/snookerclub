@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Table:</b>
+  <%= @play.table_id %>
+</p>
+
+<p>
+  <b>Starts at:</b>
+  <%= @play.starts_at %>
+</p>
+
+<p>
+  <b>Ends at:</b>
+  <%= @play.ends_at %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%= @play.note %>
+</p>
+
+
+<%= link_to 'Edit', edit_play_path(@play) %> |
+<%= link_to 'Back', plays_path %>
