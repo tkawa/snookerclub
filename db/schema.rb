@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20120611113347) do
   add_index "accounts", ["provider", "uid"], :name => "index_accounts_on_provider_and_uid", :unique => true
 
   create_table "plays", :force => true do |t|
-    t.integer  "table_id"
+    t.integer  "table_id",   :null => false
     t.datetime "starts_at",  :null => false
     t.datetime "ends_at"
     t.text     "note"

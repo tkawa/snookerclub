@@ -1,7 +1,7 @@
 class CreatePlays < ActiveRecord::Migration
   def change
     create_table :plays do |t|
-      t.integer :table_id
+      t.integer :table_id, :null => false
       t.timestamp :starts_at, :null => false
       t.timestamp :ends_at
       t.text :note
