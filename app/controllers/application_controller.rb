@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
   # ログイン認証
   def authorize
     # セッション／トップコントローラ以外で
-    if params[:controller] != "sessions" and params[:controller] != "top"
+    if params[:controller] != "sessions" and params[:controller] != "home"
       # 未ログインであればルートヘリダイレクト
       if session[:account_id].blank?
         redirect_to :root and return
