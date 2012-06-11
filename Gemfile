@@ -7,6 +7,9 @@ gem 'rails', '3.2.5'
 
 gem 'jquery-rails'
 gem 'thin'
+gem 'rails_config'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -20,13 +23,17 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :production do
+  gem 'pg'
+end
+
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
 end
 
-group :production do
-  gem 'pg'
+group :development do
+  gem 'omniauth-scaffold'
 end
 
 # To use ActiveModel has_secure_password
