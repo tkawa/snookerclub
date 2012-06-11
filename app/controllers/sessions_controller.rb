@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
   #----------#
   def callback
     auth = request.env["omniauth.auth"]
-    user = User.where( provider: auth["provider"], uid: auth["uid"] ).first || User.create_with_omniauth( auth )
-    session[:user_id] = user.id
+    account = Account.where( provider: auth["provider"], uid: auth["uid"] ).first || Account.create_with_omniauth( auth )
+    session[:account_id] = account.id
 
     redirect_to :root, notice: "ログインしました。"
   end
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   # destroy #
   #---------#
   def destroy
-    session[:user_id] = nil
+    session[:account_id] = nil
 
     redirect_to :root, notice: "ログアウトしました。"
   end
