@@ -1,8 +1,14 @@
 <h1>Welcome to Snooker Club.</h1>
 <h2>テーブル使用状況</h2>
 <dl>
-  <% @tables.each do |t| %>
-    <dt>Table <%= t.id %></dt>
-    <dd>準備中</dd>
+  <% @tables.each do |table| %>
+    <dt>Table <%= table.id %></dt>
+    <% if @current_plays[table.id].present? %>
+      <% @current_plays[table.id].each do |play| %>
+        <dd><%= play.username %></dd>
+      <% end %>
+    <% else %>
+      <dd>利用可</dd>
+    <% end %>
   <% end %>
 </dl>

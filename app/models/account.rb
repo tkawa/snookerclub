@@ -1,5 +1,6 @@
 # coding: utf-8
 class Account < ActiveRecord::Base
+  has_many :plays
   attr_accessible :provider, :uid, :name, :screen_name, :image, :token, :secret
 
   private
