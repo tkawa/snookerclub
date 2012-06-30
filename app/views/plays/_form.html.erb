@@ -1,36 +1,38 @@
-<%= form_for(@play) do |f| %>
-  <% if @play.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@play.errors.count, "error") %> prohibited this play from being saved:</h2>
-
-      <ul>
-      <% @play.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @play, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :table_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :table_id, :class => 'number_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :starts_at, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :starts_at, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ends_at, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :ends_at, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :note, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :note, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :account_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :account_id, :class => 'number_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :table_id %><br />
-    <%= f.number_field :table_id %>
-  </div>
-  <div class="field">
-    <%= f.label :starts_at %><br />
-    <%= f.datetime_select :starts_at %>
-  </div>
-  <div class="field">
-    <%= f.label :ends_at %><br />
-    <%= f.datetime_select :ends_at %>
-    <%#= f.datetime_local_field :ends_at %>
-    <!--<input name="play[ends_at_date]" type="date">-->
-    <!--<input name="play[ends_at_time]" type="time">-->
-  </div>
-  <div class="field">
-    <%= f.label :note %><br />
-    <%= f.text_area :note %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                plays_path, :class => 'btn' %>
   </div>
 <% end %>
