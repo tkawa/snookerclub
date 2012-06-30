@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/anjlab/bootstrap-rails.git
+  revision: 0f0817baae2069aea9197cd8956dfca874731dbe
+  specs:
+    anjlab-bootstrap-rails (2.0.4.1)
+      railties (>= 3.0)
+      sass
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -157,6 +165,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  anjlab-bootstrap-rails!
   coffee-rails (~> 3.2.1)
   jquery-rails
   omniauth-facebook
